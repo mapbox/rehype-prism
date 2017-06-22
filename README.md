@@ -1,5 +1,7 @@
 # rehype-prism
 
+[![Build Status](https://travis-ci.org/mapbox/rehype-prism.svg?branch=master)](https://travis-ci.org/mapbox/rehype-prism)
+
 [rehype](https://github.com/wooorm/rehype) plugin to highlight code blocks in HTML with [Prism](http://prismjs.com/).
 
 (If you would like to highlight code blocks with [highlight.js](https://github.com/isagalaev/highlight.js), instead, use [rehype-highlight](https://github.com/wooorm/rehype-highlight).)
