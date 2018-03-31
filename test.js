@@ -4,50 +4,43 @@ const rehype = require('rehype');
 const dedent = require('dedent');
 const rehypePrism = require('./index');
 
-const processHtml = html => {
+const processHtml = (html, options) => {
   return rehype()
     .data('settings', { fragment: true })
-    .use(rehypePrism)
+    .use(rehypePrism, options)
     .processSync(html)
     .toString();
 };
 
-describe('rehypePrism', () => {
-  test('finds code and highlights', () => {
-    const result = processHtml(dedent`
-      <div>
-        <p>foo</p>
-        <pre><code class="language-css">p { color: red }</code></pre>
-      </div>
-    `);
-    expect(result).toMatchSnapshot();
-  });
+test('finds code and highlights', () => {
+  const result = processHtml(dedent`
+    <div>
+      <p>foo</p>
+      <pre><code class="language-css">p { color: red }</code></pre>
+    </div>
+  `);
+  expect(result).toMatchSnapshot();
+});
 
-  test('does nothing to code block without language- class', () => {
-    const result = processHtml(dedent`
-      <pre><code>p { color: red }</code></pre>
-    `);
-    expect(result).toMatchSnapshot();
-  });
+test('does nothing to code block without language- class', () => {
+  const result = processHtml(dedent`
+    <pre><code>p { color: red }</code></pre>
+  `);
+  expect(result).toMatchSnapshot();
+});
 
-  test('does nothing to code block with fake language- class', () => {
-    const result = processHtml(dedent`
+test('throw error with fake language- class', () => {
+  expect(() => {
+    processHtml(dedent`
       <pre><code class="language-thisisnotalanguage">p { color: red }</code></pre>
     `);
-    expect(result).toMatchSnapshot();
-  });
+  }).toThrow(/Unknown language/);
+});
 
-  test('does nothing to code block with no-highlight class', () => {
-    const result = processHtml(dedent`
-      <pre><code class="language-css no-highlight">p { color: red }</code></pre>
-    `);
-    expect(result).toMatchSnapshot();
-  });
-
-  test('does nothing to code block with nohighlight class', () => {
-    const result = processHtml(dedent`
-      <pre><code class="language-css nohighlight">p { color: red }</code></pre>
-    `);
-    expect(result).toMatchSnapshot();
-  });
+test('with options.ignoreMissing, does nothing to code block with fake language- class', () => {
+  const html = dedent`
+    <pre><code class="language-thisisnotalanguage">p { color: red }</code></pre>
+  `;
+  const result = processHtml(html, { ignoreMissing: true });
+  expect(result).toMatchSnapshot();
 });

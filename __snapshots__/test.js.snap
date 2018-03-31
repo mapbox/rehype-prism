@@ -1,16 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rehypePrism does nothing to code block with fake language- class 1`] = `"<pre><code class=\\"language-thisisnotalanguage\\">p { color: red }</code></pre>"`;
+exports[`does nothing to code block without language- class 1`] = `"<pre><code>p { color: red }</code></pre>"`;
 
-exports[`rehypePrism does nothing to code block with no-highlight class 1`] = `"<pre><code class=\\"language-css no-highlight\\">p { color: red }</code></pre>"`;
-
-exports[`rehypePrism does nothing to code block with nohighlight class 1`] = `"<pre><code class=\\"language-css nohighlight\\">p { color: red }</code></pre>"`;
-
-exports[`rehypePrism does nothing to code block without language- class 1`] = `"<pre><code>p { color: red }</code></pre>"`;
-
-exports[`rehypePrism finds code and highlights 1`] = `
+exports[`finds code and highlights 1`] = `
 "<div>
   <p>foo</p>
-  <pre><code class=\\"language-css\\"><span class=\\"token selector\\">p</span> <span class=\\"token punctuation\\">{</span> <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> red <span class=\\"token punctuation\\">}</span></code></pre>
+  <pre><code class=\\"language-css\\"><span class=\\"token selector\\">p </span><span class=\\"token punctuation\\">{</span> <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> red <span class=\\"token punctuation\\">}</span></code></pre>
 </div>"
 `;
+
+exports[`with options.ignoreMissing, does nothing to code block with fake language- class 1`] = `"<pre><code class=\\"language-thisisnotalanguage\\">p { color: red }</code></pre>"`;
