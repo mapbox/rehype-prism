@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 0.2.0
 
 - **Breaking:** Add `options.ignoreMissing` which defaults to `false`.
   If you are relying on *silent* failures to highlight when the language is not defined, you'll need to use this option.
