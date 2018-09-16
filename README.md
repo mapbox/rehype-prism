@@ -80,6 +80,26 @@ unified()
   .process(/* some markdown */);
 ```
 
+## FAQ
+
+<details>
+  <summary>Why does rehype-prism copy the <code>language-</code> class to the <code>&lt;pre&gt;</code> tag?</summary>
+  
+  [Prism recommends](https://prismjs.com/#basic-usage) adding the `language-` class to the `<code>` tag like this:
+
+  ```html
+  <pre><code class="language-css">p { color: red }</code></pre>
+  ```
+
+  It bases this recommendation on the HTML5 spec. However, an undocumented behavior of their JavaScript is that, in the process of highlighting the code, they also copy the `language-` class to the `<pre>` tag:
+
+  ```html
+  <pre class="language-css"><code class="language-css"><span class="token selector">p</span> <span class="token punctuation">{</span> <span class="token property">color</span><span class="token punctuation">:</span> red <span class="token punctuation">}</span></code></pre>
+  ```
+
+  This resulted in many [Prism themes](https://github.com/PrismJS/prism-themes) relying on this behavior by using CSS selectors like `pre[class*="language-"]`. So in order for people using rehype-prism to get the most out of these themes, we decided to do the same.
+</details>
+
 [Prism]: http://prismjs.com/
 
 [refractor]: https://github.com/wooorm/refractor
