@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+
+- Add `language-*` class to the `<pre>` tag of the output, because many Prism themes rely on this undocumented pattern.
+
 ## 0.2.0
 
 - **Breaking:** Add `options.ignoreMissing` which defaults to `false`.
