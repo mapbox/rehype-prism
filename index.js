@@ -24,6 +24,8 @@ module.exports = options => {
 
     let result;
     try {
+      parent.properties.className = (parent.properties.className || [])
+        .concat('language-' + lang);
       result = refractor.highlight(nodeToString(node), lang);
     } catch (err) {
       if (options.ignoreMissing && /Unknown language/.test(err.message)) {

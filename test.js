@@ -12,6 +12,13 @@ const processHtml = (html, options) => {
     .toString();
 };
 
+test('copies the language- class to pre tag', () => {
+  const result = processHtml(dedent`
+    <pre><code class="language-css"></code></pre>
+  `);
+  expect(result).toMatchSnapshot();
+});
+
 test('finds code and highlights', () => {
   const result = processHtml(dedent`
     <div>
