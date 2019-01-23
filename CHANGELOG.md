@@ -1,6 +1,6 @@
 # Changelog
 
-## HEAD
+## 0.3.1
 
 - Allow uppercase language names in the `language-*` class (e.g. `language-CSS`).
 
