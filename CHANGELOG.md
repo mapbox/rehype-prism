@@ -1,5 +1,9 @@
 # Changelog
 
+## HEAD
+
+- Allow uppercase language names in the `language-*` class (e.g. `language-CSS`).
+
 ## 0.3.0
 
 - Add `language-*` class to the `<pre>` tag of the output, because many Prism themes rely on this undocumented pattern.

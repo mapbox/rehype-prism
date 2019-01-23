@@ -43,7 +43,7 @@ function getLanguage(node) {
 
   for (const classListItem of className) {
     if (classListItem.slice(0, 9) === 'language-') {
-      return classListItem.slice(9);
+      return classListItem.slice(9).toLowerCase();
     }
   }
 

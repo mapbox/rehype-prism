@@ -29,6 +29,16 @@ test('finds code and highlights', () => {
   expect(result).toMatchSnapshot();
 });
 
+test('handles uppercase languages correctly', () => {
+  const result = processHtml(dedent`
+    <div>
+      <p>foo</p>
+      <pre><code class="language-CSS">p { color: red }</code></pre>
+    </div>
+  `);
+  expect(result).toMatchSnapshot();
+});
+
 test('does nothing to code block without language- class', () => {
   const result = processHtml(dedent`
     <pre><code>p { color: red }</code></pre>

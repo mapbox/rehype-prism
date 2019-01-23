@@ -11,4 +11,11 @@ exports[`finds code and highlights 1`] = `
 </div>"
 `;
 
+exports[`handles uppercase languages correctly 1`] = `
+"<div>
+  <p>foo</p>
+  <pre class=\\"language-css\\"><code class=\\"language-CSS\\"><span class=\\"token selector\\">p </span><span class=\\"token punctuation\\">{</span> <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> red <span class=\\"token punctuation\\">}</span></code></pre>
+</div>"
+`;
+
 exports[`with options.ignoreMissing, does nothing to code block with fake language- class 1`] = `"<pre class=\\"language-thisisnotalanguage\\"><code class=\\"language-thisisnotalanguage\\">p { color: red }</code></pre>"`;
