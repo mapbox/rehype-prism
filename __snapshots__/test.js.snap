@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`with options.langs, does nothing to code block with unregistered language 1`] = `"<pre class=\\"language-python\\"><code class=\\"language-python\\">import lib</code></pre>"`;
+
+exports[`with options.langs, highlights code block with registered language 1`] = `"<pre class=\\"language-python\\"><code class=\\"language-python\\"><span class=\\"token keyword\\">import</span> lib</code></pre>"`;
+
 exports[`copies the language- class to pre tag 1`] = `"<pre class=\\"language-css\\"><code class=\\"language-css\\"></code></pre>"`;
 
 exports[`does nothing to code block without language- class 1`] = `"<pre><code>p { color: red }</code></pre>"`;

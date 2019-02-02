@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0
+
+- Add `options.langs` which defaults to `undefined`.
+  To include concise list of languages, you'll need to use this option.
+
 ## 0.3.1
 
 - Allow uppercase language names in the `language-*` class (e.g. `language-CSS`).

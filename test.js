@@ -12,6 +12,22 @@ const processHtml = (html, options) => {
     .toString();
 };
 
+test('with options.langs, does nothing to code block with unregistered language', () => {
+  const html = dedent`
+    <pre><code class="language-python">import lib</code></pre>
+  `;
+  const result = processHtml(html, { langs: ['php'], ignoreMissing: true });
+  expect(result).toMatchSnapshot();
+});
+
+test('with options.langs, highlights code block with registered language', () => {
+  const html = dedent`
+    <pre><code class="language-python">import lib</code></pre>
+  `;
+  const result = processHtml(html, { langs: ['python'] });
+  expect(result).toMatchSnapshot();
+});
+
 test('copies the language- class to pre tag', () => {
   const result = processHtml(dedent`
     <pre><code class="language-css"></code></pre>
