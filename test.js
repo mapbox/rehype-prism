@@ -3,6 +3,7 @@
 const rehype = require('rehype');
 const dedent = require('dedent');
 const rehypePrism = require('./index');
+const parse = require('./src/parse');
 
 const processHtml = (html, options) => {
   return rehype()
@@ -11,22 +12,6 @@ const processHtml = (html, options) => {
     .processSync(html)
     .toString();
 };
-
-test('with options.langs, does nothing to code block with unregistered language', () => {
-  const html = dedent`
-    <pre><code class="language-python">import lib</code></pre>
-  `;
-  const result = processHtml(html, { langs: ['php'], ignoreMissing: true });
-  expect(result).toMatchSnapshot();
-});
-
-test('with options.langs, highlights code block with registered language', () => {
-  const html = dedent`
-    <pre><code class="language-python">import lib</code></pre>
-  `;
-  const result = processHtml(html, { langs: ['python'] });
-  expect(result).toMatchSnapshot();
-});
 
 test('copies the language- class to pre tag', () => {
   const result = processHtml(dedent`
@@ -76,4 +61,19 @@ test('with options.ignoreMissing, does nothing to code block with fake language-
   `;
   const result = processHtml(html, { ignoreMissing: true });
   expect(result).toMatchSnapshot();
+});
+
+test('compile new template with custom registered languages', () => {
+  const mockParsedTemplate = parse(['scss', 'ruby', 'python'], false);
+  expect(mockParsedTemplate).toMatchSnapshot();
+});
+
+test('compile new template with all registered languages', () => {
+  const mockParsedTemplate = parse(['all'], false);
+  expect(mockParsedTemplate).toMatchSnapshot();
+});
+
+test("don't compile new template if no languages are passed", () => {
+  const mockParsedTemplate = parse([], false);
+  expect(mockParsedTemplate).toMatchSnapshot();
 });

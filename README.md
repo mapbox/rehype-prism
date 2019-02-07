@@ -1,14 +1,13 @@
 # rehype-prism
 
 [![Build Status](https://travis-ci.org/mapbox/rehype-prism.svg?branch=master)](https://travis-ci.org/mapbox/rehype-prism)
-[![MIT License](https://img.shields.io/github/license/mapbox/rehype-prism.svg?style=flat)](https://github.com/mapbox/rehype-prism/blob/master/LICENSE)
-![Minzipped Size](https://img.shields.io/bundlephobia/minzip/@mapbox/rehype-prism.svg?style=flat)
-[![NPM Version](https://img.shields.io/npm/v/@mapbox/rehype-prism.svg?style=flat)](https://www.npmjs.com/package/@mapbox/rehype-prism)
-![Node Version](https://img.shields.io/node/v/@mapbox/rehype-prism.svg?style=flat)
 
 [rehype](https://github.com/wooorm/rehype) plugin to highlight code blocks in HTML with [Prism] (via [refractor]).
 
 (If you would like to highlight code blocks with [highlight.js](https://github.com/isagalaev/highlight.js), instead, check out [rehype-highlight](https://github.com/wooorm/rehype-highlight).)
+
+**Best suited for usage in Node.**
+If you would like to perform syntax highlighting *in the browser*, you should look into [less heavy ways to use refractor](https://github.com/wooorm/refractor#browser).
 
 ## Installation
 
@@ -38,15 +37,6 @@ Default: `false`.
 By default, if `{name}` does not correspond to a [language supported by refractor] an error will be thrown.
 
 If you would like to silently skip `<code>` elements with invalid languages, set this option to `true`.
-
-#### options.langs
-
-Type: `array`.
-Default: `undefined`
-
-By default, the full list of [languages supported by refractor] will be registered. 
-
-If you would like to include specific languages, set this option to an array of languages.
 
 ## Usage
 
@@ -89,6 +79,23 @@ unified()
   .process(/* some markdown */);
 ```
 
+## Registring languages
+
+By default `rehype-prism` includes [all language definitions] from refractor, though it's possible to set your custom 
+list of registered languages by generating a new template of `index.js`. It is as easy as going in the package's root 
+directory and specifing a list of languages:
+
+```bash
+cd /node_modules/rehype-prism
+yarn register python java ruby kotlin
+```
+
+To reset the template back to using all languages:
+
+```bash
+yarn register-all
+```
+
 ## FAQ
 
 <details>
@@ -115,4 +122,4 @@ unified()
 
 [language supported by refractor]: https://github.com/wooorm/refractor#syntaxes
 
-[languages supported by refractor]: https://github.com/wooorm/refractor#syntaxes
+[all language definitions]: https://github.com/wooorm/refractor#syntaxes

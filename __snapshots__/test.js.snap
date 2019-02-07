@@ -1,12 +1,124 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`with options.langs, does nothing to code block with unregistered language 1`] = `"<pre class=\\"language-python\\"><code class=\\"language-python\\">import lib</code></pre>"`;
+exports[`compile new template with all registered languages 1`] = `
+"'use strict';
 
-exports[`with options.langs, highlights code block with registered language 1`] = `"<pre class=\\"language-python\\"><code class=\\"language-python\\"><span class=\\"token keyword\\">import</span> lib</code></pre>"`;
+const visit = require('unist-util-visit');
+const nodeToString = require('hast-util-to-string');
+const refractor = require('refractor');
+
+module.exports = options => {
+  options = options || {};
+
+  
+
+  return tree => {
+    visit(tree, 'element', visitor);
+  };
+
+  function visitor(node, index, parent) {
+    if (!parent || parent.tagName !== 'pre' || node.tagName !== 'code') {
+      return;
+    }
+
+    const lang = getLanguage(node);
+
+    if (lang === null) {
+      return;
+    }
+
+    let result;
+    try {
+      parent.properties.className = (parent.properties.className || [])
+        .concat('language-' + lang);
+      result = refractor.highlight(nodeToString(node), lang);
+    } catch (err) {
+      if (options.ignoreMissing && /Unknown language/.test(err.message)) {
+        return;
+      }
+      throw err;
+    }
+
+    node.children = result;
+  }
+};
+
+function getLanguage(node) {
+  const className = node.properties.className || [];
+  for (const classListItem of className) {
+    if (classListItem.slice(0, 9) === 'language-') {
+      return classListItem.slice(9).toLowerCase();
+    }
+  }
+
+  return null;
+}
+"
+`;
+
+exports[`compile new template with custom registered languages 1`] = `
+"'use strict';
+
+const visit = require('unist-util-visit');
+const nodeToString = require('hast-util-to-string');
+const refractor = require('refractor/core');
+
+module.exports = options => {
+  options = options || {};
+
+  refractor.register(require('refractor/lang/scss.js'));
+  refractor.register(require('refractor/lang/ruby.js'));
+  refractor.register(require('refractor/lang/python.js'));
+
+  return tree => {
+    visit(tree, 'element', visitor);
+  };
+
+  function visitor(node, index, parent) {
+    if (!parent || parent.tagName !== 'pre' || node.tagName !== 'code') {
+      return;
+    }
+
+    const lang = getLanguage(node);
+
+    if (lang === null) {
+      return;
+    }
+
+    let result;
+    try {
+      parent.properties.className = (parent.properties.className || [])
+        .concat('language-' + lang);
+      result = refractor.highlight(nodeToString(node), lang);
+    } catch (err) {
+      if (options.ignoreMissing && /Unknown language/.test(err.message)) {
+        return;
+      }
+      throw err;
+    }
+
+    node.children = result;
+  }
+};
+
+function getLanguage(node) {
+  const className = node.properties.className || [];
+  for (const classListItem of className) {
+    if (classListItem.slice(0, 9) === 'language-') {
+      return classListItem.slice(9).toLowerCase();
+    }
+  }
+
+  return null;
+}
+"
+`;
 
 exports[`copies the language- class to pre tag 1`] = `"<pre class=\\"language-css\\"><code class=\\"language-css\\"></code></pre>"`;
 
 exports[`does nothing to code block without language- class 1`] = `"<pre><code>p { color: red }</code></pre>"`;
+
+exports[`don't compile new template if no languages are passed 1`] = `null`;
 
 exports[`finds code and highlights 1`] = `
 "<div>

@@ -7,7 +7,7 @@
   },
   "plugins": ["node"],
   "rules": {
-    "node/no-unsupported-features": ["error", {"version": 4}],
+    "node/no-unsupported-features": ["error", {"version": 8}],
     "node/no-missing-require": ["error"]
   }
 }

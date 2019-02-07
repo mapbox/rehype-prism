@@ -2,8 +2,7 @@
 
 ## 0.4.0
 
-- Add `options.langs` which defaults to `undefined`.
-  To include concise list of languages, you'll need to use this option.
+- Allow custom list of registered languages by generating a new template.
 
 ## 0.3.1
 
