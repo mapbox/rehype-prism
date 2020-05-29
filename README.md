@@ -1,4 +1,4 @@
-# rehype-prism
+# @mapbox/rehype-prism
 
 
 [![Build Status](https://travis-ci.org/mapbox/rehype-prism.svg?branch=master)](https://travis-ci.org/mapbox/rehype-prism)
@@ -47,7 +47,7 @@ Some examples of how you might do that:
 
 ```js
 const rehype = require('rehype');
-const rehypePrism = require('rehype-prism');
+const rehypePrism = require('@mapbox/rehype-prism');
 
 rehype()
   .use(rehypePrism)
@@ -57,7 +57,7 @@ rehype()
 ```js
 const unified = require('unified');
 const rehypeParse = require('rehype-parse');
-const rehypePrism = require('rehype-prism');
+const rehypePrism = require('@mapbox/rehype-prism');
 
 unified()
   .use(rehypeParse)
@@ -71,7 +71,7 @@ If you'd like to get syntax highlighting in Markdown, parse the Markdown (with r
 const unified = require('unified');
 const remarkParse = require('remark-parse');
 const remarkRehype = require('remark-rehype');
-const rehypePrism = require('rehype-prism');
+const rehypePrism = require('@mapbox/rehype-prism');
 
 unified()
   .use(remarkParse)
