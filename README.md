@@ -1,7 +1,7 @@
 # @mapbox/rehype-prism
 
 
-[![Build Status](https://travis-ci.org/mapbox/rehype-prism.svg?branch=master)](https://travis-ci.org/mapbox/rehype-prism)
+[![Build Status](https://travis-ci.org/mapbox/rehype-prism.svg?branch=main)](https://travis-ci.org/mapbox/rehype-prism)
 
 [rehype](https://github.com/wooorm/rehype) plugin to highlight code blocks in HTML with [Prism] (via [refractor]).
 
