@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0
+
+- Update dependencies.
+
 ## 0.4.0
 
 - Update snapshot, use Node 10, remove yarn in favor of package-lock.json, update Jest to fix security alerts.
