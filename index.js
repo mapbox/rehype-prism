@@ -4,10 +4,10 @@ const visit = require('unist-util-visit');
 const nodeToString = require('hast-util-to-string');
 const refractor = require('refractor');
 
-module.exports = options => {
+module.exports = (options) => {
   options = options || {};
 
-  return tree => {
+  return (tree) => {
     visit(tree, 'element', visitor);
   };
 
@@ -24,8 +24,9 @@ module.exports = options => {
 
     let result;
     try {
-      parent.properties.className = (parent.properties.className || [])
-        .concat('language-' + lang);
+      parent.properties.className = (parent.properties.className || []).concat(
+        'language-' + lang
+      );
       result = refractor.highlight(nodeToString(node), lang);
     } catch (err) {
       if (options.ignoreMissing && /Unknown language/.test(err.message)) {
