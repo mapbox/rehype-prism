@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.0
+
+- Update dependencies.
+
 ## 0.5.0
 
 - Update dependencies.
