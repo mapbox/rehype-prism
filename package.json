@@ -28,19 +28,19 @@
   },
   "homepage": "https://github.com/mapbox/rehype-prism#readme",
   "dependencies": {
-    "hast-util-to-string": "^1.0.3",
-    "refractor": "^3.0.0",
-    "unist-util-visit": "^2.0.2"
+    "hast-util-to-string": "^1.0.4",
+    "refractor": "^3.3.1",
+    "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
     "@mapbox/prettier-config-docs": "^0.2.1",
     "dedent": "^0.7.0",
-    "eslint": "^7.2.0",
+    "eslint": "^7.21.0",
     "eslint-plugin-node": "^11.1.0",
-    "husky": "^4.2.5",
-    "jest": "^26.0.1",
-    "lint-staged": "^10.2.10",
-    "prettier": "^2.0.5",
+    "husky": "^4.3.8",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
     "rehype": "^11.0.0"
   },
   "prettier": "@mapbox/prettier-config-docs",
