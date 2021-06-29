@@ -29,7 +29,7 @@
   "homepage": "https://github.com/mapbox/rehype-prism#readme",
   "dependencies": {
     "hast-util-to-string": "^1.0.4",
-    "refractor": "^3.3.1",
+    "refractor": "^4.1.0",
     "unist-util-visit": "^2.0.3"
   },
   "devDependencies": {
