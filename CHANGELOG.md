@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.0
+
+- Update dependencies: refractor@3.4.0, eslint, jest, and prettier.
+
 ## 0.6.0
 
 - Update dependencies.
