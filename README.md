@@ -57,10 +57,12 @@ rehype()
 const unified = require('unified');
 const rehypeParse = require('rehype-parse');
 const rehypePrism = require('@mapbox/rehype-prism');
+const rehypeStringify = require('rehype-stringify');
 
 unified()
   .use(rehypeParse)
   .use(rehypePrism)
+  .use(rehypeStringify)
   .processSync(/* some html */);
 ```
 
@@ -71,11 +73,13 @@ const unified = require('unified');
 const remarkParse = require('remark-parse');
 const remarkRehype = require('remark-rehype');
 const rehypePrism = require('@mapbox/rehype-prism');
+const rehypeStringify = require('rehype-stringify');
 
 unified()
   .use(remarkParse)
   .use(remarkRehype)
   .use(rehypePrism)
+  .use(rehypeStringify)
   .process(/* some markdown */);
 ```
 
