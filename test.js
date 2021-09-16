@@ -61,3 +61,17 @@ test('with options.ignoreMissing, does nothing to code block with fake language-
   const result = processHtml(html, { ignoreMissing: true });
   expect(result).toMatchSnapshot();
 });
+
+test('with options.alias it can highlight language aliases', () => {
+  const html = dedent`
+    <pre>
+      <code class="language-vue">
+        &lt;script setup&gt;
+          const id = 7
+        &lt;/script&gt;
+      </code>
+    </pre>
+  `;
+  const result = processHtml(html, { alias: { markup: ['vue', 'html'] } });
+  expect(result).toMatchSnapshot();
+});
