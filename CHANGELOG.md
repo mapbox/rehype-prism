@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.0
+
+- Add `alias` option to support aliases in refractor.
+
 ## 0.7.0
 
 - Update dependencies: refractor@3.4.0, eslint, jest, and prettier.
