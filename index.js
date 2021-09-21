@@ -7,6 +7,10 @@ const refractor = require('refractor');
 module.exports = (options) => {
   options = options || {};
 
+  if (options.alias) {
+    refractor.alias(options.alias);
+  }
+
   return (tree) => {
     visit(tree, 'element', visitor);
   };

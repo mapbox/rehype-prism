@@ -38,6 +38,13 @@ By default, if `{name}` does not correspond to a [language supported by refracto
 
 If you would like to silently skip `<code>` elements with invalid languages, set this option to `true`.
 
+#### options.alias
+
+Type: `Record<string, string | string[]>`.
+Default: `undefined`.
+
+Provide [aliases] to refractor to register as alternative names for a language.
+
 ## Usage
 
 Use this package [as a rehype plugin](https://github.com/rehypejs/rehype/blob/master/doc/plugins.md#using-plugins).
@@ -104,3 +111,5 @@ unified()
 [refractor]: https://github.com/wooorm/refractor
 
 [language supported by refractor]: https://github.com/wooorm/refractor#syntaxes
+
+[aliases]: https://github.com/wooorm/refractor#refractoraliasname-alias
