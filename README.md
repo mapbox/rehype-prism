@@ -38,12 +38,12 @@ By default, if `{name}` does not correspond to a [language supported by refracto
 
 If you would like to silently skip `<code>` elements with invalid languages, set this option to `true`.
 
-#### options.syntaxes
+#### options.syntax
 
-Type: `refractor.RefractorSyntax[]`.
+Type: `refractor.RefractorSyntax`.
 Default: `undefined`.
 
-Provide syntaxes that's to be [registered] by refactor.
+Provide a syntax that's to be [registered] by refactor.
 
 #### options.alias
 
@@ -97,7 +97,7 @@ unified()
 
 <details>
   <summary>Why does rehype-prism copy the <code>language-</code> class to the <code>&lt;pre&gt;</code> tag?</summary>
-
+  
   [Prism recommends](https://prismjs.com/#basic-usage) adding the `language-` class to the `<code>` tag like this:
 
   ```html

@@ -8,7 +8,9 @@ module.exports = (options) => {
   options = options || {};
 
   if (options.syntaxes) {
-    options.syntaxes.forEach((syntax) => refractor.register(syntax));
+    options.syntaxes.forEach(syntax => refractor.register(syntax));
+  }
+    refractor.register(options.syntax);
   }
 
   if (options.alias) {
