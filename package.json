@@ -1,6 +1,6 @@
 {
-  "name": "@mapbox/rehype-prism",
-  "version": "0.8.0",
+  "name": "rehype-prism-2",
+  "version": "0.8.1",
   "description": "rehype plugin to highlight code blocks in HTML with Prism",
   "main": "index.js",
   "scripts": {

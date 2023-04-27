@@ -1,4 +1,4 @@
-# @mapbox/rehype-prism
+# rehype-prism-2
 
 [![Build Status](https://travis-ci.com/mapbox/rehype-prism.svg?branch=main)](https://travis-ci.com/mapbox/rehype-prism)
 
@@ -12,7 +12,7 @@ If you would like to perform syntax highlighting *in the browser*, you should lo
 ## Installation
 
 ```
-npm install @mapbox/rehype-prism
+npm install rehype-prism-2
 ```
 
 ## API
@@ -38,6 +38,13 @@ By default, if `{name}` does not correspond to a [language supported by refracto
 
 If you would like to silently skip `<code>` elements with invalid languages, set this option to `true`.
 
+#### options.syntax
+
+Type: `refractor.RefractorSyntax`.
+Default: `undefined`.
+
+Provide a syntax that's to be [registered] by refactor.
+
 #### options.alias
 
 Type: `Record<string, string | string[]>`.
@@ -53,7 +60,7 @@ Some examples of how you might do that:
 
 ```js
 const rehype = require('rehype');
-const rehypePrism = require('@mapbox/rehype-prism');
+const rehypePrism = require('rehype-prism-2');
 
 rehype()
   .use(rehypePrism)
@@ -63,7 +70,7 @@ rehype()
 ```js
 const unified = require('unified');
 const rehypeParse = require('rehype-parse');
-const rehypePrism = require('@mapbox/rehype-prism');
+const rehypePrism = require('rehype-prism-2');
 
 unified()
   .use(rehypeParse)
@@ -77,7 +84,7 @@ If you'd like to get syntax highlighting in Markdown, parse the Markdown (with r
 const unified = require('unified');
 const remarkParse = require('remark-parse');
 const remarkRehype = require('remark-rehype');
-const rehypePrism = require('@mapbox/rehype-prism');
+const rehypePrism = require('rehype-prism-2');
 
 unified()
   .use(remarkParse)
@@ -113,3 +120,5 @@ unified()
 [language supported by refractor]: https://github.com/wooorm/refractor#syntaxes
 
 [aliases]: https://github.com/wooorm/refractor#refractoraliasname-alias
+
+[registered]: https://github.com/wooorm/refractor#refractorregistersyntax
