@@ -1,30 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`copies the language- class to pre tag 1`] = `"<pre class=\\"language-css\\"><code class=\\"language-css\\"></code></pre>"`;
+exports[`copies the language- class to pre tag 1`] = `"<pre class="language-css"><code class="language-css"></code></pre>"`;
 
 exports[`does nothing to code block without language- class 1`] = `"<pre><code>p { color: red }</code></pre>"`;
 
 exports[`finds code and highlights 1`] = `
 "<div>
   <p>foo</p>
-  <pre class=\\"language-css\\"><code class=\\"language-css\\"><span class=\\"token selector\\">p</span> <span class=\\"token punctuation\\">{</span> <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> <span class=\\"token color\\">red</span> <span class=\\"token punctuation\\">}</span></code></pre>
+  <pre class="language-css"><code class="language-css"><span class="token selector">p</span> <span class="token punctuation">{</span> <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span> <span class="token punctuation">}</span></code></pre>
 </div>"
 `;
 
 exports[`handles uppercase languages correctly 1`] = `
 "<div>
   <p>foo</p>
-  <pre class=\\"language-css\\"><code class=\\"language-CSS\\"><span class=\\"token selector\\">p</span> <span class=\\"token punctuation\\">{</span> <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> <span class=\\"token color\\">red</span> <span class=\\"token punctuation\\">}</span></code></pre>
+  <pre class="language-css"><code class="language-CSS"><span class="token selector">p</span> <span class="token punctuation">{</span> <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span> <span class="token punctuation">}</span></code></pre>
 </div>"
 `;
 
 exports[`with options.alias it can highlight language aliases 1`] = `
-"<pre class=\\"language-vue\\">  <code class=\\"language-vue\\">
-    <span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&#x3C;</span>script</span> <span class=\\"token attr-name\\">setup</span><span class=\\"token punctuation\\">></span></span><span class=\\"token script\\"><span class=\\"token language-javascript\\">
-      <span class=\\"token keyword\\">const</span> id <span class=\\"token operator\\">=</span> <span class=\\"token number\\">7</span>
-    </span></span><span class=\\"token tag\\"><span class=\\"token tag\\"><span class=\\"token punctuation\\">&#x3C;/</span>script</span><span class=\\"token punctuation\\">></span></span>
+"<pre class="language-vue">  <code class="language-vue">
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+      <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token number">7</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>script</span><span class="token punctuation">></span></span>
   </code>
 </pre>"
 `;
 
-exports[`with options.ignoreMissing, does nothing to code block with fake language- class 1`] = `"<pre class=\\"language-thisisnotalanguage\\"><code class=\\"language-thisisnotalanguage\\">p { color: red }</code></pre>"`;
+exports[`with options.ignoreMissing, does nothing to code block with fake language- class 1`] = `"<pre class="language-thisisnotalanguage"><code class="language-thisisnotalanguage">p { color: red }</code></pre>"`;
