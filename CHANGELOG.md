@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.0
+
+- Update dependencies
+
 ## 0.8.0
 
 - Add `alias` option to support aliases in refractor.
