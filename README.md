@@ -1,3 +1,6 @@
+## Note:  This repository is no longer maintained
+As of April 2024, this repo is no longer being used by the Mapbox docs team. 
+
 # @mapbox/rehype-prism
 
 [![Build Status](https://travis-ci.com/mapbox/rehype-prism.svg?branch=main)](https://travis-ci.com/mapbox/rehype-prism)
